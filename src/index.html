@@ -4,11 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page title</title>
+    <link rel="stylesheet" href="./css//style.css" />
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <section>
+      <h1>Стандартні умивальники</h1>
+      <form action="submit" class="js-form form" id="generalForm">
+        <!-- // Довжина -->
+        <label for="length"
+          ><h3>Довжина умивальниа, <span>мм /мінімально 600/</span></h3>
+        </label>
+        <input
+          id="num"
+          type="number"
+          value=""
+          placeholder="введіть розмір* "
+          name="num"
+          min="600"
+          max="1500"
+          value="600"
+        />
+
+        <!-- //Тип стільниці -->
+        <label for="types"
+          ><h3>
+            Tип стільниці.
+            <span>Товщина зовнішнього вигляду</span>
+          </h3>
+        </label>
+        <select form="generalForm" name="typeList" id="types">
+          <option value="type1">Тип 1 / 12 мм полоска /</option>
+          <option value="type2">Тип 2 /40 мм/</option>
+          <option value="type3">Тип 3 /100 - 150 мм за висотою /</option>
+          <option value="type4">Тип 4 / Fieria /</option>
+        </select>
+
+        <!-- //Конфігурація -->
+        <label for="configs"><h3>Конфігурація</h3> </label>
+        <select form="generalForm" name="configList" id="configs">
+          <option value="config">Стільниця прямокутна</option>
+        </select>
+
+        <!-- // Колір стільниці -->
+        <label for="colors"><h3>Колір стільниці</h3> </label>
+        <select form="generalForm" name="colorsList" id="colors">
+          <option value="colorWhite">біла</option>
+          <option value="color322">322</option>
+          <option value="color708">708</option>
+          <option value="color717">717</option>
+          <option value="color719">719</option>
+        </select>
+
+        <button type="submit">Serch</button>
+      </form>
+    </section>
+
+    <script src="./script.js"></script>
   </body>
 </html>
