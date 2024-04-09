@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page title</title>
+
     <link rel="stylesheet" href="./css//style.css" />
     <link rel="stylesheet" href="./sass/index.scss" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+    />
   </head>
   <body>
     <section>
@@ -21,9 +26,9 @@
           value=""
           placeholder="введіть розмір* "
           name="num"
-          min="600"
-          max="1500"
-          value="600"
+          min="300"
+          max="2500"
+          value="300"
           required
         />
 
@@ -62,53 +67,60 @@
 
         <!-- //Тип умивальника -->
         <label for="typesWashbasin"><h3>Тип умивальника</h3> </label>
-        <select
-          form="generalForm"
-          name="typeWashbasinList"
-          id="typesWashbasin"
-          required
-        >
-          <optgroup label="Стандартна форма">
-            <option value="typesWashbasin1">Стандартна форма</option>
-          </optgroup>
-          <optgroup label="300*500">
-            <option value="typesWashbasin2">Чистий (276* 476)</option>
-            <option value="typesWashbasin3">Меншого розміру</option>
-            <option value="typesWashbasin4">
-              Більшого розміру до 650* 350
-            </option>
-            <option value="typesWashbasin5">
-              Більшого розміру до 800* 400
-            </option>
-          </optgroup>
-          <optgroup label="330*650">
-            <option value="typesWashbasin6">330*650</option>
-            <option value="typesWashbasin7">доугое</option>
-          </optgroup>
+        <select form="generalForm" name="typeWashbasinList" id="typesWashbasin">
+          <option value="typesWashbasin1">300*500</option>
+          <option value="typesWashbasin2">330*650</option>
+          <option value="typesWashbasin3">Введіть власний розмір</option>
         </select>
         <!-- //Опции -->
-        <label for="addOptions"><h3>Опціі</h3> </label>
-        <label>
-          <input type="checkbox" name="addOptions" value="addCover" />
-          Накладка на дно
-        </label>
-        <br />
-        <label>
-          <input type="checkbox" name="addOptions" value="addHoles" />
-          Додаткові отвори
-        </label>
-        <br />
-        <label>
-          <input type="checkbox" name="addOptions" value="brackets" />
-          Кронштейни для 3-го та 4-го типу (2шт)
-        </label>
-        <br />
-        <label>
-          <input type="checkbox" name="addOptions" value="brackets" />
-          Рушникотримач фрезирований для 3-го та 4-го типу (2шт)
-        </label>
+        <fieldset>
+          <legend><h3>Опціі</h3></legend>
+          <label for="addOptionsCover">
+            <input
+              class="checkbox"
+              type="checkbox"
+              id="addOptionsCover"
+              name="addOptions"
+              value="cover"
+            />
+            Накладка на дно
+          </label>
+          <br />
+          <label for="addOptionsHoles">
+            <input
+              class="checkbox"
+              type="checkbox"
+              id="addOptionsHoles"
+              name="addOptions"
+              value="holes"
+            />
+            Додаткові отвори
+          </label>
+          <br />
+          <label for="addOptionsBrackets">
+            <input
+              class="checkbox"
+              type="checkbox"
+              id="addOptionsBrackets"
+              name="addOptions"
+              value="brackets"
+            />
+            Кронштейни для 3-го та 4-го типу (2шт)
+          </label>
+          <br />
+          <label for="addOptionsHolder">
+            <input
+              class="checkbox"
+              type="checkbox"
+              id="addOptionsHolder"
+              name="addOptions"
+              value="holder"
+            />
+            Рушникотримач фрезирований для 3-го та 4-го типу (2шт)
+          </label>
+        </fieldset>
 
-        <button type="submit">Вартість, грн</button>
+        <button type="submit" onclick="">Вартість, грн</button>
       </form>
     </section>
 

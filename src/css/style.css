@@ -1,6 +1,7 @@
 body {
   background-color: rgb(242, 238, 238);
 }
+
 .form {
   max-width: 600px;
   min-width: 280px;
@@ -15,4 +16,5 @@ body {
   gap: 10px;
   color: black;
   background-color: white;
+  cursor: pointer;
 }
