@@ -1,6 +1,7 @@
 const form = document.querySelector('.js-form');
-console.dir(form);
 form.addEventListener('submit', onSubmit);
+
+const container = document.querySelector('.js-container');
 
 function onSubmit(evt) {
   evt.preventDefault();
@@ -22,27 +23,50 @@ function onSubmit(evt) {
     addOptions: getCheckedCheckBoxes(),
   };
   console.log(dataForm);
+  console.log(dataForm.size);
 }
-
+// чекбоксы
 function getCheckedCheckBoxes() {
   const checkboxes = document.getElementsByClassName('checkbox');
   console.log(checkboxes);
   const checkboxesChecked = []; // можно в массиве их хранить, если нужно использовать
-  for (let index = 0; index < checkboxes.length; index++) {
-    if (checkboxes[index].checked) {
-      checkboxesChecked.push(checkboxes[index].value);
-      console.log(checkboxes[index].value); // положим в массив выбранный
+  for (let i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      checkboxesChecked.push(checkboxes[i].value);
+      console.log(checkboxes[i].value); // положим в массив выбранный
     }
   }
   return checkboxesChecked; // для использования как знначение в обьекте
 }
 
-// function getCheckedCheckBoxes() {
-//   var selectedCheckBoxes = document.querySelectorAll('input.checkbox:checked');
+//выпадающие инпуты
 
-//   var checkedValues = Array.from(selectedCheckBoxes).map(cb => cb.value);
+const typeWashbasinSelect = document.getElementById('typesWashbasin');
+document.addEventListener('change', e => {
+  const o = e.target;
+  if (o.tagName != 'SELECT') return;
+  const oo = o.options[o.selectedIndex];
+  if (oo.id === 'typesWashbasin3') {
+    document.getElementById('selectionSize').hidden = false;
+  } else {
+    document.getElementById('selectionSize').hidden = true;
+  }
+});
 
-//   console.log(checkedValues);
+// typeWashbasinSelect.onclick = function (e) {
+//   document.getElementById('selectionSize').hidden = false;
+// };
 
-//   return checkedValues; // для использования в нужном месте
-// }
+// var canvas = document.getElementById('canvas');
+// var ctx = canvas.getContext('2d');
+
+// ctx.fillStyle = 'green';
+// ctx.fillRect(10, 10, 100, 100);
+// new EasyC(document.getElementById('canvas'), [
+//   {
+//     type: 'image',
+//     x: 250,
+//     y: 100,
+//     src: '2.png',
+//   },
+// ]).draw();

@@ -15,9 +15,9 @@
   <body>
     <section>
       <h1>Стандартні умивальники</h1>
-      <form action="submit" class="js-form form" id="generalForm">
+      <form action="submit" class="js-form form" id="form" name="form">
         <!-- // Довжина -->
-        <label for="length"
+        <label for="num"
           ><h3>Довжина умивальниа, <span>мм /мінімально 600/</span></h3>
         </label>
         <input
@@ -27,7 +27,7 @@
           placeholder="введіть розмір* "
           name="num"
           min="300"
-          max="2500"
+          max="3000"
           value="300"
           required
         />
@@ -39,42 +39,88 @@
             <span>Товщина зовнішнього вигляду</span>
           </h3>
         </label>
-        <select form="generalForm" name="typeList" id="types" required>
-          <option value="type1">Тип 1 / 12 мм полоска /</option>
-          <option value="type2">Тип 2 /40 мм/</option>
-          <option value="type3">Тип 3 /100 - 150 мм за висотою /</option>
-          <option value="type4">Тип 4 / Fieria /</option>
+        <select form="form" name="typeList" id="types" required>
+          <option data-img="" value="type1">Тип 1 / 12 мм полоска /</option>
+          <option data-img="" value="type2">Тип 2 /40 мм/</option>
+          <option data-img="" value="type3">
+            Тип 3 /100 - 150 мм за висотою /
+          </option>
+          <option data-img="" value="type4">Тип 4 / Fieria /</option>
         </select>
 
         <!-- //Конфігурація -->
         <label for="configs"><h3>Конфігурація</h3> </label>
-        <select form="generalForm" name="configList" id="configs" required>
-          <option value="config1">Стільниця прямокутна</option>
-          <option value="config2">Г-подібна стільниця</option>
-          <option value="config3">Заокруглена стільниця (R>30)</option>
-          <option value="config4">Подвійна Г-подібна стільниця</option>
+        <select form="form" name="configList" id="configs" required>
+          <option data-img="" value="config1">Стільниця прямокутна</option>
+          <option data-img="" value="config2">Г-подібна стільниця</option>
+          <option data-img="" value="config3">
+            Заокруглена стільниця (R>30)
+          </option>
+          <option data-img="" value="config4">
+            Подвійна Г-подібна стільниця
+          </option>
         </select>
 
         <!-- // Колір стільниці -->
         <label for="colors"><h3>Колір стільниці</h3> </label>
-        <select form="generalForm" name="colorsList" id="colors" required>
-          <option value="colorWhite">біла</option>
-          <option value="color322">322</option>
-          <option value="color708">708</option>
-          <option value="color717">717</option>
-          <option value="color719">719</option>
+        <select form="form" name="colorsList" id="colors" required>
+          <option data-img="" value="colorWhite">біла</option>
+          <option data-img="" value="color322">322</option>
+          <option data-img="" value="color708">708</option>
+          <option data-img="" value="color717">717</option>
+          <option data-img="" value="color719">719</option>
         </select>
 
         <!-- //Тип умивальника -->
         <label for="typesWashbasin"><h3>Тип умивальника</h3> </label>
-        <select form="generalForm" name="typeWashbasinList" id="typesWashbasin">
-          <option value="typesWashbasin1">300*500</option>
-          <option value="typesWashbasin2">330*650</option>
-          <option value="typesWashbasin3">Введіть власний розмір</option>
+        <select form="form" name="typeWashbasinList" id="typesWashbasin">
+          <option
+            selected="selected"
+            name="typesWashbasin1"
+            value="typesWashbasin1"
+          >
+            300*500
+          </option>
+          <option name="typesWashbasin2" value="typesWashbasin2">
+            330*650
+          </option>
+          <option
+            id="typesWashbasin3"
+            name="typesWashbasin3"
+            value="typesWashbasin3"
+          >
+            Введіть власний розмір
+          </option>
         </select>
+        <div hidden class="js-container container" id="selectionSize">
+          <legend><h3>Введіть розміри</h3></legend>
+
+          <input
+            id="length"
+            name="length"
+            type="number"
+            value=""
+            placeholder="введіть довжину, мм* "
+            min="0"
+          />
+          <input
+            id="width"
+            name="width"
+            type="number"
+            value=""
+            placeholder="введіть ширину, мм* "
+            min="0"
+          />
+        </div>
+
         <!-- //Опции -->
         <fieldset>
           <legend><h3>Опціі</h3></legend>
+          <!-- <div>
+            <label for="content">Контент:</label>
+            <textarea id="content" name="content" cols="60" rows="5">
+            </textarea>
+          </div> -->
           <label for="addOptionsCover">
             <input
               class="checkbox"
@@ -121,6 +167,7 @@
         </fieldset>
 
         <button type="submit" onclick="">Вартість, грн</button>
+        <canvas id="canvas"></canvas>
       </form>
     </section>
 
