@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
+    <title>калькулятор</title>
 
     <link rel="stylesheet" href="./css//style.css" />
     <link rel="stylesheet" href="./sass/index.scss" />
@@ -75,13 +75,18 @@
         <label for="typesWashbasin"><h3>Тип умивальника</h3> </label>
         <select form="form" name="typeWashbasinList" id="typesWashbasin">
           <option
+            id="typesWashbasin1"
             selected="selected"
             name="typesWashbasin1"
             value="typesWashbasin1"
           >
             300*500
           </option>
-          <option name="typesWashbasin2" value="typesWashbasin2">
+          <option
+            id="typesWashbasin2"
+            name="typesWashbasin2"
+            value="typesWashbasin2"
+          >
             330*650
           </option>
           <option
@@ -112,6 +117,16 @@
             min="0"
           />
         </div>
+
+        <!-- // Кількість чаш -->
+        <label for="bowls"><h3>Кількість чаш</h3> </label>
+        <select form="form" name="bowlsrsList" id="bowls" required>
+          <option data-img="" value="bowl1">1</option>
+          <option data-img="" value="bowl2">2</option>
+          <option data-img="" value="bowl3">3</option>
+          <option data-img="" value="bowl4">4</option>
+          <option data-img="" value="bowl5">5</option>
+        </select>
 
         <!-- //Опции -->
         <fieldset>

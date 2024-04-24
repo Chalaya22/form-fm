@@ -12,6 +12,7 @@ function onSubmit(evt) {
     configList,
     colorsList,
     typeWashbasinList,
+    bowlsrsList,
     addOptions,
   } = evt.currentTarget.elements;
 
@@ -20,10 +21,13 @@ function onSubmit(evt) {
     type: typeList.value,
     config: colorsList.value,
     size: typeWashbasinList.value,
+    numOfBowls: bowlsrsList.value,
     addOptions: getCheckedCheckBoxes(),
   };
   console.log(dataForm);
-  console.log(dataForm.size);
+
+  console.log(dataForm.numOfBowls);
+  console.log(dataForm.config);
 }
 // чекбоксы
 function getCheckedCheckBoxes() {
@@ -52,21 +56,3 @@ document.addEventListener('change', e => {
     document.getElementById('selectionSize').hidden = true;
   }
 });
-
-// typeWashbasinSelect.onclick = function (e) {
-//   document.getElementById('selectionSize').hidden = false;
-// };
-
-// var canvas = document.getElementById('canvas');
-// var ctx = canvas.getContext('2d');
-
-// ctx.fillStyle = 'green';
-// ctx.fillRect(10, 10, 100, 100);
-// new EasyC(document.getElementById('canvas'), [
-//   {
-//     type: 'image',
-//     x: 250,
-//     y: 100,
-//     src: '2.png',
-//   },
-// ]).draw();
