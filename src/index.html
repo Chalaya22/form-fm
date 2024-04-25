@@ -14,8 +14,8 @@
   </head>
   <body>
     <section>
-      <h1>Стандартні умивальники</h1>
       <form action="submit" class="js-form form" id="form" name="form">
+        <h1>Стандартні умивальники</h1>
         <!-- // Довжина -->
         <label for="num"
           ><h3>Довжина умивальниа, <span>мм /мінімально 600/</span></h3>
@@ -39,7 +39,7 @@
             <span>Товщина зовнішнього вигляду</span>
           </h3>
         </label>
-        <select form="form" name="typeList" id="types" required>
+        <select form="form" name="typeList" id="types" type="number" required>
           <option data-img="" value="type1">Тип 1 / 12 мм полоска /</option>
           <option data-img="" value="type2">Тип 2 /40 мм/</option>
           <option data-img="" value="type3">
@@ -50,7 +50,13 @@
 
         <!-- //Конфігурація -->
         <label for="configs"><h3>Конфігурація</h3> </label>
-        <select form="form" name="configList" id="configs" required>
+        <select
+          form="form"
+          name="configList"
+          id="configs"
+          type="number"
+          required
+        >
           <option data-img="" value="config1">Стільниця прямокутна</option>
           <option data-img="" value="config2">Г-подібна стільниця</option>
           <option data-img="" value="config3">
@@ -63,7 +69,13 @@
 
         <!-- // Колір стільниці -->
         <label for="colors"><h3>Колір стільниці</h3> </label>
-        <select form="form" name="colorsList" id="colors" required>
+        <select
+          form="form"
+          name="colorsList"
+          id="colors"
+          type="number"
+          required
+        >
           <option data-img="" value="colorWhite">біла</option>
           <option data-img="" value="color322">322</option>
           <option data-img="" value="color708">708</option>
@@ -73,7 +85,12 @@
 
         <!-- //Тип умивальника -->
         <label for="typesWashbasin"><h3>Тип умивальника</h3> </label>
-        <select form="form" name="typeWashbasinList" id="typesWashbasin">
+        <select
+          form="form"
+          name="typeWashbasinList"
+          id="typesWashbasin"
+          type="number"
+        >
           <option
             id="typesWashbasin1"
             selected="selected"
@@ -120,7 +137,13 @@
 
         <!-- // Кількість чаш -->
         <label for="bowls"><h3>Кількість чаш</h3> </label>
-        <select form="form" name="bowlsrsList" id="bowls" required>
+        <select
+          form="form"
+          name="bowlsrsList"
+          id="bowls"
+          type="number"
+          required
+        >
           <option data-img="" value="bowl1">1</option>
           <option data-img="" value="bowl2">2</option>
           <option data-img="" value="bowl3">3</option>
@@ -180,6 +203,8 @@
             Рушникотримач фрезирований для 3-го та 4-го типу (2шт)
           </label>
         </fieldset>
+
+        <input type="reset" value="Очистить" class="button button-blue" />
 
         <button type="submit" onclick="">Вартість, грн</button>
         <canvas id="canvas"></canvas>
