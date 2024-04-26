@@ -3,6 +3,22 @@ form.addEventListener('submit', onSubmit);
 
 const container = document.querySelector('.js-container');
 
+const inputCurrentLength = document.querySelector('.js-length');
+const inputCurrentWidth = document.querySelector('.js-width');
+// console.dir(inputCurrentLength);
+// console.dir(inputCurrentWidth);
+inputCurrentLength.addEventListener('input', onInput);
+inputCurrentWidth.addEventListener('input', onInput);
+
+function onInput(evt) {
+  console.log(evt.currentTarget.value);
+  const totalArea = Math.floor(
+    Number(inputCurrentLength.value * inputCurrentWidth.value * 0.025 + 2000)
+  );
+  console.log(totalArea);
+  return totalArea;
+}
+
 function onSubmit(evt) {
   evt.preventDefault();
 
@@ -19,16 +35,28 @@ function onSubmit(evt) {
   const dataForm = {
     length: num.value,
     type: typeList.value,
+    color: colorsList.value,
     config: colorsList.value,
     size: typeWashbasinList.value,
     numOfBowls: bowlsrsList.value,
     addOptions: getCheckedCheckBoxes(),
   };
-  console.log(dataForm);
+  // console.log(dataForm);
 
-  console.log(dataForm.numOfBowls);
-  console.log(dataForm.config);
+  // console.log(dataForm.color);
+
+  const totalPrice = Math.floor(
+    Number(
+      dataForm.length * 7.4 * dataForm.type * dataForm.color * dataForm.config +
+        dataForm.size * dataForm.numOfBowls
+    )
+  );
+  console.log(totalPrice);
+  document.getElementById('result').innerHTML =
+    'Загальна сума: ' + totalPrice + 'грн';
+  // evt.target.reset();
 }
+
 // чекбоксы
 function getCheckedCheckBoxes() {
   const checkboxes = document.getElementsByClassName('checkbox');
@@ -56,3 +84,5 @@ document.addEventListener('change', e => {
     document.getElementById('selectionSize').hidden = true;
   }
 });
+
+// прослушивание инпутов
