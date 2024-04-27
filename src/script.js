@@ -7,16 +7,23 @@ const inputCurrentLength = document.querySelector('.js-length');
 const inputCurrentWidth = document.querySelector('.js-width');
 // console.dir(inputCurrentLength);
 // console.dir(inputCurrentWidth);
-inputCurrentLength.addEventListener('input', onInput);
-inputCurrentWidth.addEventListener('input', onInput);
+// inputCurrentLength.addEventListener('input', onInput);
+// inputCurrentWidth.addEventListener('input', onInput);
 
-function onInput(evt) {
-  console.log(evt.currentTarget.value);
-  const totalArea = Math.floor(
-    Number(inputCurrentLength.value * inputCurrentWidth.value * 0.025 + 2000)
-  );
-  console.log(totalArea);
-  return totalArea;
+// function onInput() {
+//   // console.log(evt.currentTarget.value);
+//   const totalArea = Math.floor(
+//     Number(inputCurrentLength.value * inputCurrentWidth.value * 0.025 + 2000)
+//   );
+//   console.log(totalArea);
+//   return totalArea;
+// }
+function onInput() {
+  var inputCurrentLength = parseFloat(document.getElementById('length').value);
+  var inputCurrentWidth = parseFloat(document.getElementById('width').value);
+  var res = inputCurrentLength * inputCurrentWidth * 0.025 + 2000;
+  document.getElementById('res').innerText = res;
+  return res;
 }
 
 function onSubmit(evt) {

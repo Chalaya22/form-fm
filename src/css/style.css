@@ -1,9 +1,51 @@
 body {
   background-color: rgb(242, 238, 238);
 }
+/* .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+} */
 input[type='number'] {
   border: 1px dotted #999;
   border-radius: 5;
+}
+.btn-new {
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to right,
+    #003cc5 0%,
+    #0b63f6 51%,
+    #003cc5 100%
+  );
+}
+
+.btn-new:hover {
+  background-position: right center;
+}
+.btn-new-green {
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to right,
+    #c4bbbe 0%,
+    #c4bbbe 51%,
+    #5d5e60 100%
+  );
+}
+
+.btn-new:hover {
+  background-position: right center;
 }
 .form {
   font-family: 'BlinkMacSystemFont';
