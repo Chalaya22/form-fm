@@ -5,9 +5,10 @@ body {
 input[type='number'] {
   border: 1px dotted #999;
   border-radius: 5;
+  display: block;
+  margin-bottom: 10px;
 }
 .btn-new {
-  margin-bottom: 10px;
   text-align: center;
   transition: 0.5s;
   background-size: 200% auto;
