@@ -125,10 +125,10 @@
             placeholder=" ширина, мм* "
             min="0"
           />
-          <button class="btn-new" onclick="onInput()">Порахувати</button>
-          <button class="btn-new" id="res">Вартість, грн</button>
-          <!-- <button type="submit" onclick="">Порахувати</button>
-        <button type="submit" id="result">Вартість, грн</button> -->
+          <button type="submit" class="btn-new" onclick="onInput()">
+            Порахувати
+          </button>
+          <button type="submit" class="btn-new" id="res">Вартість, грн</button>
         </div>
 
         <!-- // Кількість чаш -->
@@ -200,10 +200,15 @@
           </label>
         </fieldset>
 
-        <input type="reset" value="Очистити" class="btn-new" />
-
-        <button class="btn-new" type="submit" onclick="">Порахувати</button>
-        <button class="btn-new" type="submit" id="result">Вартість, грн</button>
+        <button class="btn-news" type="submit" onclick="">Порахувати</button>
+        <button class="btn-news" type="number" id="result">
+          Вартість, грн
+        </button>
+        <input
+          type="button"
+          onclick="document.getElementById('form').reset()"
+          value="reset"
+        />
 
         <canvas id="canvas"></canvas>
       </form>

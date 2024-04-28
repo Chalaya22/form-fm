@@ -22,7 +22,7 @@ function onInput() {
   var inputCurrentLength = parseFloat(document.getElementById('length').value);
   var inputCurrentWidth = parseFloat(document.getElementById('width').value);
   var res = inputCurrentLength * inputCurrentWidth * 0.025 + 2000;
-  document.getElementById('res').innerText = res;
+  document.getElementById('res').innerText = res + 'грн';
   return res;
 }
 
@@ -50,8 +50,6 @@ function onSubmit(evt) {
   };
   // console.log(dataForm);
 
-  // console.log(dataForm.color);
-
   const totalPrice = Math.floor(
     Number(
       dataForm.length * 7.4 * dataForm.type * dataForm.color * dataForm.config +
@@ -59,9 +57,9 @@ function onSubmit(evt) {
     )
   );
   console.log(totalPrice);
-  document.getElementById('result').innerHTML =
-    'Загальна сума: ' + totalPrice + 'грн';
-  // evt.target.reset();
+
+  let result = (document.getElementById('result').innerHTML =
+    'Загальна сума: ' + totalPrice + 'грн');
 }
 
 // чекбоксы
