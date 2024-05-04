@@ -100,7 +100,7 @@
           <option id="typesWashbasin2" name="typesWashbasin2" value="7500">
             330*650
           </option>
-          <option id="typesWashbasin3" name="typesWashbasin3" value=" ">
+          <option id="typesWashbasin3" name="typesWashbasin3" value="0 ">
             Введіть власний розмір
           </option>
         </select>
@@ -109,8 +109,8 @@
 
           <input
             class="js-length"
-            id="length"
-            name="length"
+            id="lengths"
+            name="lengths"
             type="number"
             value=""
             placeholder="довжина, мм* "
@@ -125,10 +125,10 @@
             placeholder=" ширина, мм* "
             min="0"
           />
-          <button type="submit" class="btn-new" onclick="onInput()">
+          <!-- <button type="submit" class="btn-new" onclick="onInput()">
             Порахувати
           </button>
-          <button type="submit" class="btn-new" id="res">Вартість, грн</button>
+          <button type="submit" class="btn-new" id="res">Вартість, грн</button> -->
         </div>
 
         <!-- // Кількість чаш -->
@@ -150,11 +150,7 @@
         <!-- //Опции -->
         <fieldset>
           <legend><h3>Опціі</h3></legend>
-          <!-- <div>
-            <label for="content">Контент:</label>
-            <textarea id="content" name="content" cols="60" rows="5">
-            </textarea>
-          </div> -->
+
           <label for="addOptionsCover">
             <input
               class="checkbox"

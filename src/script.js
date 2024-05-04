@@ -22,15 +22,15 @@ const btnSubmit = document.querySelector('.js-button');
 // }
 // document.getElementById('typesWashbasin3').value = onInput();
 
-function onInput() {
-  var inputCurrentLength = parseFloat(document.getElementById('length').value);
-  var inputCurrentWidth = parseFloat(document.getElementById('width').value);
-  var res = inputCurrentLength * inputCurrentWidth * 0.025 + 2000;
-  document.getElementById('res').innerText = res + 'грн';
-  console.log(res);
+// function onInput() {
+//   var inputCurrentLength = parseFloat(document.getElementById('length').value);
+//   var inputCurrentWidth = parseFloat(document.getElementById('width').value);
+//   var res = inputCurrentLength * inputCurrentWidth * 0.025 + 2000;
+//   document.getElementById('res').innerText = res + 'грн';
+//   console.log(res);
 
-  return res;
-}
+//   return res;
+// }
 
 function onSubmit(evt) {
   evt.preventDefault();
@@ -45,6 +45,8 @@ function onSubmit(evt) {
     addOptions,
     send,
     suma,
+    lengths,
+    width,
   } = evt.currentTarget.elements;
 
   const dataForm = {
@@ -57,8 +59,23 @@ function onSubmit(evt) {
     addOptions: getCheckedCheckBoxes(),
     btn: send.value,
     sumaBtn: suma.value,
+    inputLength: lengths.value,
+    inputWeight: width.value,
   };
   console.log(dataForm.sumaBtn);
+  console.log(dataForm.inputLength);
+  console.log(dataForm.inputWeight);
+
+  const addSize = Math.floor(
+    dataForm.inputLength * dataForm.inputWeight * 0.025 + 2000
+  );
+
+  const totalSpetPrice = Math.floor(
+    dataForm.length * 7.4 * dataForm.type * dataForm.color * dataForm.config +
+      addSize * dataForm.numOfBowls
+  );
+  console.log(addSize);
+  console.log(totalSpetPrice);
 
   const totalPrice = Math.floor(
     Number(
@@ -68,9 +85,18 @@ function onSubmit(evt) {
   );
   console.log(totalPrice);
 
-  document.getElementById('result').value =
-    'Загальна сума: ' + totalPrice + 'грн';
+  if (
+    (document.getElementById('lengths').value != '') &
+    (document.getElementById('width').value != '')
+  ) {
+    document.getElementById('result').value =
+      'Загальна сума: ' + totalSpetPrice + 'грн';
+  } else {
+    document.getElementById('result').value =
+      'Загальна сума: ' + totalPrice + 'грн';
+  }
 }
+
 function clearData() {
   document.getElementById('result').value = 'Вартість, грн';
   document.getElementById('form').reset();
