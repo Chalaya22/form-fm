@@ -100,7 +100,7 @@
           <option id="typesWashbasin2" name="typesWashbasin2" value="7500">
             330*650
           </option>
-          <option id="typesWashbasin3" name="typesWashbasin3" value="">
+          <option id="typesWashbasin3" name="typesWashbasin3" value=" ">
             Введіть власний розмір
           </option>
         </select>
@@ -200,15 +200,16 @@
           </label>
         </fieldset>
 
-        <button class="btn-news" type="submit" onclick="">Порахувати</button>
-        <button class="btn-news" type="number" id="result">
-          Вартість, грн
-        </button>
         <input
-          type="button"
-          onclick="document.getElementById('form').reset()"
-          value="reset"
+          id="btn"
+          name="send"
+          value=" Порахувати"
+          type="submit"
+          onclick=""
         />
+
+        <input name="suma" type="submit" id="result" value="Вартість, грн" />
+        <input type="button" onclick="clearData()" value="Очистити" />
 
         <canvas id="canvas"></canvas>
       </form>

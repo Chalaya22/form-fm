@@ -8,7 +8,7 @@ input[type='number'] {
   display: block;
   margin-bottom: 10px;
 }
-.btn-new {
+input[type='submit'] {
   text-align: center;
   transition: 0.5s;
   background-size: 200% auto;
@@ -23,10 +23,10 @@ input[type='number'] {
   );
 }
 
-.btn-new:hover {
+input[type='submit']:hover {
   background-position: right center;
 }
-.btn-news {
+input[type='button'] {
   text-align: center;
   transition: 0.5s;
   background-size: 200% auto;
@@ -41,7 +41,7 @@ input[type='number'] {
   );
 }
 
-.btn-news:hover {
+input[type='button']:hover {
   background-position: right center;
 }
 

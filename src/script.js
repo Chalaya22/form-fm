@@ -1,11 +1,13 @@
-const form = document.querySelector('.js-form');
+const form = document.getElementById('form');
+console.log(form);
 form.addEventListener('submit', onSubmit);
 
-const container = document.querySelector('.js-container');
+// const container = document.querySelector('.js-container');
 
 const inputCurrentLength = document.querySelector('.js-length');
 const inputCurrentWidth = document.querySelector('.js-width');
-// console.dir(inputCurrentLength);
+const btnSubmit = document.querySelector('.js-button');
+// console.dir(inputCurrentLength.value);
 // console.dir(inputCurrentWidth);
 // inputCurrentLength.addEventListener('input', onInput);
 // inputCurrentWidth.addEventListener('input', onInput);
@@ -18,11 +20,15 @@ const inputCurrentWidth = document.querySelector('.js-width');
 //   console.log(totalArea);
 //   return totalArea;
 // }
+// document.getElementById('typesWashbasin3').value = onInput();
+
 function onInput() {
   var inputCurrentLength = parseFloat(document.getElementById('length').value);
   var inputCurrentWidth = parseFloat(document.getElementById('width').value);
   var res = inputCurrentLength * inputCurrentWidth * 0.025 + 2000;
   document.getElementById('res').innerText = res + 'грн';
+  console.log(res);
+
   return res;
 }
 
@@ -37,6 +43,8 @@ function onSubmit(evt) {
     typeWashbasinList,
     bowlsrsList,
     addOptions,
+    send,
+    suma,
   } = evt.currentTarget.elements;
 
   const dataForm = {
@@ -47,8 +55,10 @@ function onSubmit(evt) {
     size: typeWashbasinList.value,
     numOfBowls: bowlsrsList.value,
     addOptions: getCheckedCheckBoxes(),
+    btn: send.value,
+    sumaBtn: suma.value,
   };
-  // console.log(dataForm);
+  console.log(dataForm.sumaBtn);
 
   const totalPrice = Math.floor(
     Number(
@@ -58,8 +68,12 @@ function onSubmit(evt) {
   );
   console.log(totalPrice);
 
-  let result = (document.getElementById('result').innerHTML =
-    'Загальна сума: ' + totalPrice + 'грн');
+  document.getElementById('result').value =
+    'Загальна сума: ' + totalPrice + 'грн';
+}
+function clearData() {
+  document.getElementById('result').value = 'Вартість, грн';
+  document.getElementById('form').reset();
 }
 
 // чекбоксы
@@ -79,7 +93,7 @@ function getCheckedCheckBoxes() {
 //выпадающие инпуты
 
 const typeWashbasinSelect = document.getElementById('typesWashbasin');
-document.addEventListener('change', e => {
+typeWashbasinSelect.addEventListener('change', e => {
   const o = e.target;
   if (o.tagName != 'SELECT') return;
   const oo = o.options[o.selectedIndex];
@@ -89,5 +103,3 @@ document.addEventListener('change', e => {
     document.getElementById('selectionSize').hidden = true;
   }
 });
-
-// прослушивание инпутов
