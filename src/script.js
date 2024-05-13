@@ -4,9 +4,9 @@ form.addEventListener('submit', onSubmit);
 
 // const container = document.querySelector('.js-container');
 
-const inputCurrentLength = document.querySelector('.js-length');
-const inputCurrentWidth = document.querySelector('.js-width');
-const btnSubmit = document.querySelector('.js-button');
+// const inputCurrentLength = document.querySelector('.js-length');
+// const inputCurrentWidth = document.querySelector('.js-width');
+// const btnSubmit = document.querySelector('.js-button');
 // console.dir(inputCurrentLength.value);
 // console.dir(inputCurrentWidth);
 // inputCurrentLength.addEventListener('input', onInput);
@@ -37,6 +37,7 @@ function onSubmit(evt) {
 
   const {
     num,
+    depth,
     typeList,
     configList,
     colorsList,
@@ -51,6 +52,7 @@ function onSubmit(evt) {
 
   const dataForm = {
     length: num.value,
+    inputDepth: depth.value,
     type: typeList.value,
     color: colorsList.value,
     config: colorsList.value,
@@ -62,9 +64,12 @@ function onSubmit(evt) {
     inputLength: lengths.value,
     inputWeight: width.value,
   };
+  const leng = dataForm.length;
+  const deep = dataForm.inputDepth;
   console.log(dataForm.sumaBtn);
-  console.log(dataForm.inputLength);
+  console.log(leng);
   console.log(dataForm.inputWeight);
+  console.log(deep);
 
   const addSize = Math.floor(
     dataForm.inputLength * dataForm.inputWeight * 0.025 + 2000
@@ -100,6 +105,11 @@ function onSubmit(evt) {
 function clearData() {
   document.getElementById('result').value = 'Вартість, грн';
   document.getElementById('form').reset();
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+
+  // Очищаем все пространство холста
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 // чекбоксы
@@ -129,3 +139,45 @@ typeWashbasinSelect.addEventListener('change', e => {
     document.getElementById('selectionSize').hidden = true;
   }
 });
+
+// CANVAS
+function draw() {
+  const canvas = document.getElementById('canvas');
+
+  // console.log(canvas);
+  if (canvas.getContext) {
+    const ctx = canvas.getContext('2d');
+
+    ctx.fillRect(
+      10,
+      10,
+      document.getElementById('num').value,
+      document.getElementById('depth').value
+    );
+    ctx.clearRect(
+      document.getElementById('x').value,
+      document.getElementById('y').value,
+      (canvas.width2 = document.getElementById('num').value / 2),
+      (canvas.height2 = document.getElementById('depth').value / 2)
+    );
+
+    // ctx.fillStyle = 'rgb(225, 217, 217)';
+    // console.log(canvas.width);
+    // console.log(canvas.height);
+    // ctx.clearRect(
+    //   50,
+    //   50,
+    //   (canvas.width2 = document.getElementById('num').value),
+    //   (canvas.height2 = document.getElementById('depth').value)
+    // );
+    // ctx.strokeRect(
+    //   150,
+    //   150,
+    //   (canvas.width3 = document.getElementById('num').value / 2),
+    //   (canvas.height3 = document.getElementById('depth').value / 2)
+    // );
+
+    // console.log(canvas.width2);
+    // console.log(canvas.height2);
+  }
+}

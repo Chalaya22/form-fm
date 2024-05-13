@@ -21,6 +21,7 @@
           ><h3>Довжина умивальника, <span>мм /мінімально 600/</span></h3>
         </label>
         <input
+          onclick="draw()"
           id="num"
           type="number"
           value=""
@@ -31,6 +32,59 @@
           value="300"
           required
         />
+
+        <fieldset>
+          <legend>Розрахунок</legend>
+
+          <!-- Глибина -->
+          <label for="depth"
+            ><p>Глибина умивальника, <span>мм (мін. 400//мах. 600)</span></p>
+          </label>
+          <input
+            id="depth"
+            onclick="draw()"
+            type="number"
+            value=""
+            placeholder="мм* "
+            name="depth"
+            max="600"
+            min="400"
+          />
+
+          <!-- ось X -->
+          <label for="x"><p>Розташування чаши по осі Х</p> </label>
+          <input
+            id="x"
+            onclick="draw()"
+            type="number"
+            value=""
+            placeholder="введіть данні* "
+            name="x"
+          />
+          <!-- ось Y -->
+          <label for="x"><p>Розташування чаши по осі Y</p> </label>
+          <input
+            id="y"
+            onclick="draw()"
+            type="number"
+            value=""
+            placeholder="введіть данні* "
+            name="y"
+          />
+          <!-- Примінити-->
+
+          <label for="onsubmit">
+            <input
+              class="checkbox"
+              type="checkbox"
+              id="onsubmit"
+              name="onsubmit"
+              value="cover"
+              onclick="draw()"
+            />
+            Примінити
+          </label>
+        </fieldset>
 
         <!-- //Тип стільниці -->
         <label for="types"
@@ -207,7 +261,9 @@
         <input name="suma" type="submit" id="result" value="Вартість, грн" />
         <input type="button" onclick="clearData()" value="Очистити" />
 
-        <canvas id="canvas"></canvas>
+        <!-- CANVAS -->
+
+        <canvas id="canvas" width="3000" height="1500"></canvas>
       </form>
     </section>
 
