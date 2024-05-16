@@ -148,13 +148,22 @@ function draw() {
   if (canvas.getContext) {
     const ctx = canvas.getContext('2d');
 
+    ctx.strokeStyle = 'grey';
+    ctx.fillStyle = 'rgba(237, 234, 234, 0.989)';
+
+    // canvas.width = (window.innerWidth * 90) / 100;
+    // canvas.height = (window.innerHeight * 90) / 100;
+
+    // ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // ctx.transform(1, 0, 0, -1, 0, canvas.height);
+
     ctx.fillRect(
-      10,
-      10,
+      0,
+      0,
       document.getElementById('num').value,
       document.getElementById('depth').value
     );
-    ctx.clearRect(
+    ctx.strokeRect(
       document.getElementById('x').value,
       document.getElementById('y').value,
       (canvas.width2 = document.getElementById('num').value / 2),
