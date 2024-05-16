@@ -156,12 +156,26 @@
           <option id="typesWashbasin3" name="typesWashbasin3" value="0 ">
             Введіть власний розмір
           </option>
+          <!-- Примінити-->
+
+          <label for="onsubmit">
+            <input
+              class="checkbox"
+              type="checkbox"
+              id="onsubmit"
+              name="onsubmit"
+              value="cover"
+              onclick="draw()"
+            />
+            Примінити
+          </label>
         </select>
         <div hidden class="js-container container" id="selectionSize">
           <legend><h3>Введіть розміри</h3></legend>
 
           <input
             class="js-length"
+            onclick="draw()"
             id="lengths"
             name="lengths"
             type="number"
@@ -171,6 +185,7 @@
           />
           <input
             class="js-width"
+            onclick="draw()"
             id="width"
             name="width"
             type="number"
@@ -262,7 +277,7 @@
 
         <!-- CANVAS -->
 
-        <canvas id="canvas" width="1200" height="600"></canvas>
+        <canvas id="canvas" width="1200" height="1200"></canvas>
       </form>
     </section>
 

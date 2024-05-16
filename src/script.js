@@ -148,7 +148,7 @@ function draw() {
   if (canvas.getContext) {
     const ctx = canvas.getContext('2d');
 
-    ctx.strokeStyle = 'grey';
+    ctx.strokeStyle = 'blue';
     ctx.fillStyle = 'rgba(237, 234, 234, 0.989)';
 
     // canvas.width = (window.innerWidth * 90) / 100;
@@ -166,8 +166,8 @@ function draw() {
     ctx.strokeRect(
       document.getElementById('x').value,
       document.getElementById('y').value,
-      (canvas.width2 = document.getElementById('num').value / 2),
-      (canvas.height2 = document.getElementById('depth').value / 2)
+      (canvas.width2 = document.getElementById('lengths').value),
+      (canvas.height2 = document.getElementById('width').value)
     );
 
     // ctx.fillStyle = 'rgb(225, 217, 217)';
