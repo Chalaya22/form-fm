@@ -141,52 +141,100 @@ typeWashbasinSelect.addEventListener('change', e => {
 });
 
 // CANVAS
-function draw() {
-  const canvas = document.getElementById('canvas');
 
-  // console.log(canvas);
+// const canvas = document.getElementById('canvas');
+// const ctx = canvas.getContext('2d');
+// const WID = canvas.width2;
+// const HEI = canvas.height2;
+// const LIMIT = 200;
+// let points = []; // Будет хранить данные про точки: x, y, цвет.
+
+// function draw() {
+//   // ctx.clearRect(0, 0, WID, HEI);
+//   ctx.strokeStyle = 'blue';
+//   ctx.strokeRect(
+//     0,
+//     0,
+//     (canvas.width1 = document.getElementById('num').value),
+//     (canvas.width1 = document.getElementById('depth').value)
+//   );
+
+//   // В массиве points хранятся объекты вида:
+//   //   { x: число, y: число, color: "rgb( , , )" }
+
+//   // points.forEach(function (point) {
+//   //   // циклом рисует все точки
+//   //   ctx.fillStyle = point.color;
+//   //   ctx.fillRect(point.x, point.y, size, size);
+//   // });
+
+//   // points.push(new Point()); // Создает новый объект точки и добавляет его в массив.
+//   // if (points.length > LIMIT) points.shift(); // Больше 200 ? Удалить первый.
+
+//   requestAnimationFrame(draw);
+//   //  заново вызывает функцию примерно через 16 миллисекунд,
+//   // и зацикливается (~60 вызовов в секунду)
+//   // Все точки на каждом вызове рисуются заново.
+// }
+
+const canvas = document.getElementById('canvas');
+const WID = canvas.width1;
+const HEI = canvas.height1;
+const LIMIT = 15;
+let size1 = canvas.width2;
+let size2 = canvas.height2;
+let points = []; // Будет хранить данные про точки: x, y, цвет.
+
+function draw() {
   if (canvas.getContext) {
     const ctx = canvas.getContext('2d');
 
-    ctx.strokeStyle = 'blue';
-    ctx.fillStyle = 'rgba(237, 234, 234, 0.989)';
+    ctx.lineWidth = 1.0; // устанавливаем толщину линии
+    ctx.textAlign = 'start';
+    ctx.setLineDash([15, 5]); //массив чисел, которые устанавливают расстояния между линиями
+    ctx.font = '24px Verdana ';
+    ctx.fillStyle = 'grey';
+    ctx.textBaseline = 'alphabetic';
+    ctx.letterSpacing = '3px';
+    ctx.textAlign = "left"
+    ctx.fillText('<довжина , мм>', 25, 25);
+    ctx.fillText('<глибина> , мм>', 900, 250);
 
-    // canvas.width = (window.innerWidth * 90) / 100;
-    // canvas.height = (window.innerHeight * 90) / 100;
-
-    // ctx.fillRect(0, 0, canvas.width, canvas.height);
-    // ctx.transform(1, 0, 0, -1, 0, canvas.height);
-
-    ctx.fillRect(
-      0,
-      0,
-      document.getElementById('num').value,
-      document.getElementById('depth').value
-    );
     ctx.strokeRect(
-      document.getElementById('x').value,
-      document.getElementById('y').value,
-      (canvas.width2 = document.getElementById('lengths').value),
-      (canvas.height2 = document.getElementById('width').value)
+      0,
+      0,
+      (canvas.width1 = document.getElementById('num').value),
+      (canvas.height1 = document.getElementById('depth').value)
     );
 
-    // ctx.fillStyle = 'rgb(225, 217, 217)';
-    // console.log(canvas.width);
-    // console.log(canvas.height);
-    // ctx.clearRect(
-    //   50,
-    //   50,
-    //   (canvas.width2 = document.getElementById('num').value),
-    //   (canvas.height2 = document.getElementById('depth').value)
-    // );
-    // ctx.strokeRect(
-    //   150,
-    //   150,
-    //   (canvas.width3 = document.getElementById('num').value / 2),
-    //   (canvas.height3 = document.getElementById('depth').value / 2)
-    // );
-
-    // console.log(canvas.width2);
-    // console.log(canvas.height2);
+    points.forEach(function (point) {
+      // циклом рисует все точки
+      ctx.strokeStyle = point.color;
+      ctx.strokeRect(
+        (document.getElementById('x').value),
+        (document.getElementById('y').value),
+        (width2 = document.getElementById('lengths').value),
+        (height2 = document.getElementById('width').value)
+      );
+    });
+    points.push(new Point()); // Создает новый объект точки и добавляет его в массив.
+    if (points.length > LIMIT) points.shift(); // Больше 200 ? Удалить первый.
+    // requestAnimationFrame(draw);
   }
 }
+
+function rand_color() {
+  let r = (Math.random() * 256) | 0; // | 0 ← Отбрасывает дробную часть
+  let g = (Math.random() * 256) | 0;
+  let b = (Math.random() * 256) | 0;
+
+  return `rgb(${r},${g},${b})`;
+  // равносильно → "rgb(" + r + "," + g + "," + b + ")"
+}
+function Point() {
+  // Справка: «Функции-конструкторы»
+  this.x = (Math.random() * (WID - size1)) | 0;
+  this.y = (Math.random() * (HEI - size2)) | 0;
+  this.color = rand_color();
+}
+console.log(points);

@@ -66,4 +66,5 @@ input[type='button']:hover {
 }
 canvas {
   border: 0.2px rgb(225, 217, 217);
+  margin-top: 50px;
 }
